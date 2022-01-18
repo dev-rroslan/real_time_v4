@@ -1,0 +1,17 @@
+<div class="dropdown">
+<%= if @current_user do %>
+<div tabindex="0" class="m-1 btn-neutral italic hover:btn-primary rounded-box"><%= @current_user.email %></div> 
+<ul tabindex="0" class= "menu dropdown-content">
+<li><%= link "Settings", to: Routes.user_settings_path(@conn, :edit) %></li>
+<li><%= link "Log out", to: Routes.user_session_path(@conn, :delete), method: :delete %></li>
+</ul>
+<% else %>
+<div tabindex="0" class="m-1 btn-neutral italic hover:btn-primary rounded-box">Register | Login</div>
+<ul tabindex="0"  class= "menu dropdown-content">
+<li><%= link "Log in", to: Routes.user_session_path(@conn, :new) %></li>
+<li><%= link "Register", to: Routes.user_registration_path(@conn, :new) %></li>
+</ul>
+<% end %>
+</div>
+
+

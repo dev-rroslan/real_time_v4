@@ -6,10 +6,24 @@ module.exports = {
     '../lib/*_web.ex',
     '../lib/*_web/**/*.*ex'
   ],
-  theme: {
-    extend: {},
-  },
+  
   plugins: [
-    require('@tailwindcss/forms')
-  ]
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),
+    require('daisyui'),
+  ],
+  daisyui: {
+    styled: true,
+    themes: true,
+    base: true,
+    utils: true,
+    logs: false,
+    rtl: false,
+  },
+  theme: {
+    extend: {
+      colors: require('daisyui/colors'),
+    },
+  }
+
 }
