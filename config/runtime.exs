@@ -8,6 +8,23 @@ import Config
 # The block below contains prod specific runtime configuration.
 
 # Start the phoenix server if environment is set and running in a release
+app_name =
+  System.get_env("FLY_APP_NAME") ||
+    raise "FLY_APP_NAME not available"
+
+config :libcluster,
+  debug: true,
+  topologies: [
+    fly6pn: [
+      strategy: Cluster.Strategy.DNSPoll,
+      config: [
+        polling_interval: 5_000,
+        query: "#{app_name}.internal",
+        node_basename: app_name
+      ]
+    ]
+  ]
+
 if System.get_env("PHX_SERVER") && System.get_env("RELEASE_NAME") do
   config :real_time, RealTimeWeb.Endpoint, server: true
 end
@@ -53,6 +70,11 @@ if config_env() == :prod do
       ip: {0, 0, 0, 0, 0, 0, 0, 0},
       port: port
     ],
+    check_origin: [
+      "https://#{app_name}.fly.dev",
+      "https://undionline.com",
+      "https://www.undionline.com"
+      ],
     secret_key_base: secret_key_base
 
   # ## Using releases

@@ -10,7 +10,8 @@ defmodule RealTime.MixProject do
       compilers: [:gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      releases: releases()
     ]
   end
 
@@ -50,7 +51,17 @@ defmodule RealTime.MixProject do
       {:gettext, "~> 0.18"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
-      {:tailwind, "~> 0.1", only: :dev}
+      {:tailwind, "~> 0.1", runtime: Mix.env() == :dev},
+      {:libcluster, "~> 3.3"}
+    ]
+  end
+
+  defp releases() do
+    [
+      real_time: [
+        include_executables_for: [:unix],
+        cookie: "0LRCO600OdhopuCgM3iaKxE83wTD4eDZvJo7VZNUPGYiS0LE5ID01Q=="
+      ]
     ]
   end
 
@@ -66,7 +77,7 @@ defmodule RealTime.MixProject do
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
-      "assets.deploy": ["tailwind default --minify", "esbuild default --minify", "phx.digest"]
+      "assets.deploy": ["tailwind default --minify", "phx.digest", "esbuild default --minify", "phx.digest"]
     ]
   end
 end

@@ -1,0 +1,1 @@
+call "%~dp0\real_time" eval RealTime.Release.migrate

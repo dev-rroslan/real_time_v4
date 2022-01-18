@@ -7,7 +7,9 @@ defmodule RealTime.Application do
 
   @impl true
   def start(_type, _args) do
+    topologies = Application.get_env(:libcluster, :topologies) || []
     children = [
+      {Cluster.Supervisor, [topologies, [name: HelloElixir.ClusterSupervisor]]},
       # Start the Ecto repository
       RealTime.Repo,
       # Start the Telemetry supervisor
@@ -18,6 +20,7 @@ defmodule RealTime.Application do
       RealTimeWeb.Endpoint
       # Start a worker by calling: RealTime.Worker.start_link(arg)
       # {RealTime.Worker, arg}
+
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
