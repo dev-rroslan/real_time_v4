@@ -9,7 +9,7 @@ defmodule RealTime.Application do
   def start(_type, _args) do
     topologies = Application.get_env(:libcluster, :topologies) || []
     children = [
-      {Cluster.Supervisor, [topologies, [name: HelloElixir.ClusterSupervisor]]},
+
       # Start the Ecto repository
       RealTime.Repo,
       # Start the Telemetry supervisor
@@ -17,10 +17,10 @@ defmodule RealTime.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: RealTime.PubSub},
       # Start the Endpoint (http/https)
-      RealTimeWeb.Endpoint
+      RealTimeWeb.Endpoint,
       # Start a worker by calling: RealTime.Worker.start_link(arg)
       # {RealTime.Worker, arg}
-
+      {Cluster.Supervisor, [topologies, [name: RealTime.ClusterSupervisor]]},
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

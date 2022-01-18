@@ -8,22 +8,6 @@ import Config
 # The block below contains prod specific runtime configuration.
 
 # Start the phoenix server if environment is set and running in a release
-app_name =
-  System.get_env("FLY_APP_NAME") ||
-    raise "FLY_APP_NAME not available"
-
-config :libcluster,
-  debug: true,
-  topologies: [
-    fly6pn: [
-      strategy: Cluster.Strategy.DNSPoll,
-      config: [
-        polling_interval: 5_000,
-        query: "#{app_name}.internal",
-        node_basename: app_name
-      ]
-    ]
-  ]
 
 if System.get_env("PHX_SERVER") && System.get_env("RELEASE_NAME") do
   config :real_time, RealTimeWeb.Endpoint, server: true
@@ -44,6 +28,24 @@ if config_env() == :prod do
     url: database_url,
     pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
     socket_options: maybe_ipv6
+
+    app_name =
+      System.get_env("FLY_APP_NAME") ||
+        raise "FLY_APP_NAME not available"
+
+    config :libcluster,
+      debug: true,
+      topologies: [
+        fly6pn: [
+          strategy: Cluster.Strategy.DNSPoll,
+          config: [
+            polling_interval: 5_000,
+            query: "#{app_name}.internal",
+            node_basename: app_name
+          ]
+        ]
+      ]
+
 
   # The secret key base is used to sign/encrypt cookies and other secrets.
   # A default value is used in config/dev.exs and config/test.exs but you
