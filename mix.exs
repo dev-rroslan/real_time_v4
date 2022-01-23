@@ -7,7 +7,7 @@ defmodule RealTime.MixProject do
       version: "0.1.0",
       elixir: "~> 1.13",
       elixirc_paths: elixirc_paths(Mix.env()),
-      compilers: [:gettext] ++ Mix.compilers(),
+      compilers: [:gettext] ++ Mix.compilers() ++ [:surface],
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
       deps: deps(),
@@ -52,8 +52,10 @@ defmodule RealTime.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:tailwind, "~> 0.1", runtime: Mix.env() == :dev},
-      {:libcluster, "~> 3.3", only: :prod}
+      {:libcluster, "~> 3.3", only: :prod},
+      {:surface, "~> 0.7.0"}
     ]
+
   end
 
   defp releases() do

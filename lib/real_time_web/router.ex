@@ -20,7 +20,10 @@ defmodule RealTimeWeb.Router do
   scope "/", RealTimeWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    get "/page", PageController, :index
+    live "/light", LightLive
+    live "/", WrongLive
+    live "/demo", Demo
   end
 
   # Other scopes may use custom stacks.
