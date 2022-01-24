@@ -29,6 +29,17 @@ config :real_time, RealTime.Mailer, adapter: Swoosh.Adapters.Local
 # Swoosh API client is needed for adapters other than SMTP.
 config :swoosh, :api_client, false
 
+if config_env() == :prod or config_env() == :dev do
+  # Configuring the mailer
+config :real_time, RealTime.Mailer,
+  adapter: Swoosh.Adapters.Sendgrid,
+  api_key: System.get_env("SENDGRID_API_KEY")
+
+config :swoosh, :api_client, Swoosh.ApiClient.Finch
+end
+
+
+
 config :tailwind,
   version: "3.0.13",
   default: [

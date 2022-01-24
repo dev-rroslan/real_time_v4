@@ -18,6 +18,7 @@ defmodule RealTime.Application do
       {Phoenix.PubSub, name: RealTime.PubSub},
       # Start the Endpoint (http/https)
       RealTimeWeb.Endpoint,
+      {Finch, name: Swoosh.Finch},
       # Start a worker by calling: RealTime.Worker.start_link(arg)
       # {RealTime.Worker, arg}
       {Cluster.Supervisor, [topologies, [name: RealTime.ClusterSupervisor]]},
