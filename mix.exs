@@ -21,7 +21,7 @@ defmodule RealTime.MixProject do
   def application do
     [
       mod: {RealTime.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :hcaptcha, :ex_twilio]
     ]
   end
 
@@ -56,7 +56,9 @@ defmodule RealTime.MixProject do
       {:surface, "~> 0.7.0"},
       {:kino, "~> 0.5.0"},
       {:vega_lite, "~> 0.1.3"},
-      {:finch, "~> 0.10.2"}
+      {:finch, "~> 0.10.2"},
+      {:hcaptcha, "~> 0.0.1"},
+      {:ex_twilio, "~> 0.9.1"},
     ]
 
   end

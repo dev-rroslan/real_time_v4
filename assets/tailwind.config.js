@@ -1,5 +1,6 @@
 // See the Tailwind configuration guide for advanced usage
 // https://tailwindcss.com/docs/configuration
+const defaultTheme = require('tailwindcss/defaultTheme')
 module.exports = {
   
 
@@ -26,6 +27,7 @@ module.exports = {
   theme: {
     fontFamily: {
       sans: [
+        "Inter var",
         // "system-ui",
         "-apple-system",
         // "BlinkMacSystemFont",

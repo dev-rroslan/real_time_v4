@@ -35,7 +35,14 @@ config :real_time, RealTime.Mailer,
   adapter: Swoosh.Adapters.Sendgrid,
   api_key: System.get_env("SENDGRID_API_KEY")
 
-config :swoosh, :api_client, Swoosh.ApiClient.Finch
+config :hcaptcha,
+  public_key: System.get_env("HCAPTCHA_PUBLIC_KEY"),
+  secret: System.get_env("HCAPTCHA_PRIVATE_KEY")
+
+config :ex_twilio, account_sid:   {:system, "TWILIO_ACCOUNT_SID"},
+                   auth_token:    {:system, "TWILIO_AUTH_TOKEN"}
+
+  config :swoosh, :api_client, Swoosh.ApiClient.Finch
 end
 
 
