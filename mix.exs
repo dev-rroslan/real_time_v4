@@ -59,6 +59,8 @@ defmodule RealTime.MixProject do
       {:finch, "~> 0.10.2"},
       {:hcaptcha, "~> 0.0.1"},
       {:ex_twilio, "~> 0.9.1"},
+      {:surface_heroicons, "~> 0.6.0"},
+      {:surface_font_awesome, "~> 0.2.4"}
     ]
 
   end

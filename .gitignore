@@ -39,3 +39,4 @@ assets/js/_hooks/
 
 # Supabase
 .supabase
+connection.livemd
