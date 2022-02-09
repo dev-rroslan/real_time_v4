@@ -27,6 +27,7 @@ defmodule RealTime.MixProject do
 
   # Specifies which paths to compile per environment.
   defp elixirc_paths(:test), do: ["lib", "test/support"]
+  defp elixirc_paths(:dev), do: ["lib"] ++ catalogues()
   defp elixirc_paths(_), do: ["lib"]
 
   # Specifies your project dependencies.
@@ -60,7 +61,9 @@ defmodule RealTime.MixProject do
       {:hcaptcha, "~> 0.0.1"},
       {:ex_twilio, "~> 0.9.1"},
       {:surface_heroicons, "~> 0.6.0"},
-      {:surface_font_awesome, "~> 0.2.4"}
+      {:surface_font_awesome, "~> 0.2.4"},
+      {:surface_catalogue, "~> 0.3.0"},
+      {:elixir_sense, github: "elixir-lsp/elixir_sense"},
     ]
 
   end
@@ -87,6 +90,12 @@ defmodule RealTime.MixProject do
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
       "assets.deploy": ["tailwind default --minify", "phx.digest", "esbuild default --minify", "phx.digest"]
+    ]
+  end
+
+  def catalogues do
+    [
+      "priv/catalogue"
     ]
   end
 end

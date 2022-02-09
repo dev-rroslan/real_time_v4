@@ -17,22 +17,22 @@ defmodule RealTimeWeb.LightLive do
       </div>
 
       <button phx-click="off">
-      <img src="https://www.datocms-assets.com/61798/1642897862-light-off.svg" />
+      <img src="images/light-off.svg" />
         <span class="sr-only">Off</span>
       </button>
 
       <button phx-click="down">
-      <img src="https://www.datocms-assets.com/61798/1642897855-down.svg" />
+      <img src="images/down.svg" />
         <span class="sr-only">Down</span>
       </button>
 
       <button phx-click="up">
-      <img src="https://www.datocms-assets.com/61798/1642897869-up.svg" />
+      <img src="images/up.svg" />
         <span class="sr-only">Up</span>
       </button>
 
       <button phx-click="on">
-      <img src="https://www.datocms-assets.com/61798/1642897865-light-on.svg" />
+      <img src="images/light-on.svg" />
         <span class="sr-only">On</span>
       </button>
     </div>

@@ -1,5 +1,6 @@
 defmodule RealTimeWeb.Router do
   use RealTimeWeb, :router
+  import Surface.Catalogue.Router
 
   import RealTimeWeb.UserAuth
 
@@ -24,6 +25,7 @@ defmodule RealTimeWeb.Router do
     live "/light", LightLive
     live "/", WrongLive
     live "/demo", Demo
+    live "/example", ExampleLive
   end
 
   # Other scopes may use custom stacks.
@@ -43,6 +45,7 @@ defmodule RealTimeWeb.Router do
 
     scope "/" do
       pipe_through :browser
+      surface_catalogue "/catalogue"
 
       live_dashboard "/dashboard", metrics: RealTimeWeb.Telemetry
     end
