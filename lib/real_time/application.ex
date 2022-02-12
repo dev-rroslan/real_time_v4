@@ -7,7 +7,7 @@ defmodule RealTime.Application do
 
   @impl true
   def start(_type, _args) do
-    #topologies = Application.get_env(:libcluster, :topologies) || []
+    topologies = Application.get_env(:libcluster, :topologies) || []
     children = [
 
       # Start the Ecto repository
@@ -21,7 +21,7 @@ defmodule RealTime.Application do
       {Finch, name: Swoosh.Finch},
       # Start a worker by calling: RealTime.Worker.start_link(arg)
       # {RealTime.Worker, arg}
-      #{Cluster.Supervisor, [topologies, [name: RealTime.ClusterSupervisor]]},
+      {Cluster.Supervisor, [topologies, [name: RealTime.ClusterSupervisor]]}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

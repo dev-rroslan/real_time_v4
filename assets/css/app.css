@@ -4,7 +4,102 @@
 
 
 
+/* Includes some default style for the starter application.
+ * This can be safely deleted to start fresh.
+ */
 
+/* Milligram v1.4.1 https://milligram.github.io
+ * Copyright (c) 2020 CJ Patoilo Licensed under the MIT license
+ */
+
+ 
+
+ /* General style */
+ 
+ 
+ .container{
+   margin: 0 auto;
+   max-width: 80.0rem;
+   padding: 0 2.0rem;
+   position: relative;
+   width: 100%
+ }
+ select {
+   width: auto;
+ }
+ 
+ /* Phoenix promo and logo */
+ .phx-hero {
+   text-align: center;
+   border-bottom: 1px solid #e3e3e3;
+   background: #eee;
+   border-radius: 6px;
+   padding: 3em 3em 1em;
+   margin-bottom: 3rem;
+   font-weight: 200;
+   font-size: 120%;
+ }
+ .phx-hero input {
+   background: #ffffff;
+ }
+ .phx-logo {
+   min-width: 300px;
+   margin: 1rem;
+   display: block;
+ }
+ .phx-logo img {
+   width: auto;
+   display: block;
+ }
+ 
+ /* Headers */
+ header {
+   width: 100%;
+   background: #fdfdfd;
+   border-bottom: 1px solid #eaeaea;
+   margin-bottom: 2rem;
+ }
+ header section {
+   align-items: center;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+ }
+ header section :first-child {
+   order: 2;
+ }
+ header section :last-child {
+   order: 1;
+ }
+ header nav ul,
+ header nav li {
+   margin: 0;
+   padding: 0;
+   display: block;
+   text-align: right;
+   white-space: nowrap;
+ }
+ header nav ul {
+   margin: 1rem;
+   margin-top: 0;
+ }
+ header nav a {
+   display: block;
+ }
+ 
+ @media (min-width: 40.0rem) { /* Small devices (landscape phones, 576px and up) */
+   header section {
+     flex-direction: row;
+   }
+   header nav ul {
+     margin: 1rem;
+   }
+   .phx-logo {
+     flex-basis: 527px;
+     margin: 2rem 1rem;
+   }
+ }
+ 
 
 /* This file is for your main application CSS */
 
@@ -182,11 +277,15 @@ header {
 
 /* Light */
 
-#light {
+@layer utilities{
+  #light {
   @apply max-w-xl mx-auto text-center;
+  }
+
+
 
   button {
-    @apply bg-transparent mx-1 py-2 px-4 border border-cool-gray-400 border-2 rounded-lg shadow-sm transition ease-in-out duration-150 outline-none;
+    @apply bg-transparent mx-1 py-2 px-4 border border-cool-gray-400 rounded-lg shadow-sm transition ease-in-out duration-150 outline-none;
   }
 
   button:hover {
@@ -196,14 +295,17 @@ header {
   button:disabled {
     @apply opacity-50 cursor-not-allowed;
   }
-
   img {
     @apply w-10;
   }
 
+
+
+
   .meter {
     @apply flex h-12 overflow-hidden text-base bg-cool-gray-300 rounded-lg mb-8;
   }
+
 
   .meter > span {
     @apply flex flex-col justify-center text-cool-gray-900 text-center whitespace-nowrap bg-yellow-300 font-bold;
@@ -212,12 +314,12 @@ header {
 }
 
 /* License */
-
+@layer {
 #license {
   @apply max-w-lg mx-auto text-center;
 
   .card {
-    @apply bg-white shadow rounded-lg shadow-lg;
+    @apply bg-white shadow rounded-lg;
 
     .content {
       @apply p-6;
@@ -240,9 +342,10 @@ header {
     @apply text-4xl leading-none font-extrabold text-cool-gray-900 mt-4;
   }
 }
+}
 
 /* Dashboard */
-
+@layer {
 #dashboard {
   @apply max-w-4xl mx-auto;
 
@@ -298,9 +401,10 @@ header {
     }
   }
 }
+}
 
 /* Search */
-
+@layer {
 #search {
   @apply max-w-3xl mx-auto text-center;
 
@@ -333,11 +437,11 @@ header {
   }
 
   .open {
-    @apply inline-flex items-center px-3 py-1 rounded-md text-xs font-medium leading-5 bg-green-200 text-green-800 rounded-full;
+    @apply inline-flex items-center px-3 py-1 text-xs font-medium leading-5 bg-green-200 text-green-800 rounded-full;
   }
 
   .closed {
-    @apply inline-flex items-center px-3 py-1 rounded-md text-xs font-medium leading-5 bg-red-200 text-red-800 rounded-full;
+    @apply inline-flex items-center px-3 py-1 text-xs font-medium leading-5 bg-red-200 text-red-800 rounded-full;
   }
 
   .stores {
@@ -420,9 +524,9 @@ header {
     @apply bg-indigo-100;
   }
 }
-
+}
 /* Filter */
-
+@layer {
 #filter {
   .boats {
     @apply flex flex-wrap;
@@ -504,9 +608,10 @@ header {
     }
   }
 }
+}
 
 /* Live Nav */
-
+@layer {
 #servers {
   @apply flex max-w-4xl mx-auto;
 
@@ -608,11 +713,11 @@ header {
     }
 
     .up {
-      @apply px-3 py-1 rounded-md text-xs font-medium bg-green-200 text-green-800 rounded-full;
+      @apply px-3 py-1 text-xs font-medium bg-green-200 text-green-800 rounded-full;
     }
 
     .down {
-      @apply px-3 py-1 rounded-md text-xs font-medium bg-red-200 text-red-800 rounded-full;
+      @apply px-3 py-1 text-xs font-medium bg-red-200 text-red-800 rounded-full;
     }
 
     .card {
@@ -657,9 +762,9 @@ header {
     }
   }
 }
-
+}
 /* Donations */
-
+@layer {
 #donations {
   @apply max-w-4xl mx-auto;
 
@@ -672,11 +777,11 @@ header {
   }
 
   .fresh {
-    @apply px-4 py-2 rounded-md text-base font-medium leading-5 bg-green-200 text-green-800 rounded-full;
+    @apply px-4 py-2 text-base font-medium leading-5 bg-green-200 text-green-800 rounded-full;
   }
 
   .eat-now {
-    @apply px-4 py-2 rounded-md text-base font-medium leading-5 bg-red-200 text-red-800 rounded-full;
+    @apply px-4 py-2 text-base font-medium leading-5 bg-red-200 text-red-800 rounded-full;
   }
 
   table {
@@ -751,9 +856,9 @@ header {
     }
   }
 }
-
+}
 /* Volunteer Checkin */
-
+@layer {
 #checkin {
   @apply max-w-3xl mx-auto;
 
@@ -761,7 +866,7 @@ header {
     @apply mt-2 border border-cool-gray-300 bg-white rounded px-6 py-4 leading-normal w-full text-lg h-20 grid grid-cols-3 items-center;
 
     .name {
-      @apply text-cool-gray-800 text-indigo-600 font-bold overflow-auto;
+      @apply text-cool-gray-800 font-bold overflow-auto;
       justify-self: start;
     }
 
@@ -834,9 +939,9 @@ header {
     }
   }
 }
-
+}
 /* Infinite Scroll */
-
+@layer {
 #infinite-scroll {
   .order {
     @apply flex items-center px-6 py-4 m-6 mx-auto max-w-2xl rounded bg-white overflow-hidden shadow-lg text-cool-gray-700;
@@ -866,9 +971,9 @@ header {
     }
   }
 }
-
+}
 /* Sandbox and Quote Components */
-
+@layer {
 #sandbox {
   @apply max-w-xl mx-auto;
 
@@ -914,9 +1019,9 @@ header {
     }
   }
 }
-
+}
 /* Auth */
-
+@layer {
 .auth {
   @apply px-6 mt-8 mx-auto w-full max-w-md;
 
@@ -972,9 +1077,9 @@ header {
     }
   }
 }
-
+}
 /* Top Secret */
-
+@layer {
 #top-secret {
   @apply flex items-center justify-center py-10;
 
@@ -998,9 +1103,9 @@ header {
     }
   }
 }
-
+}
 /* Charting */
-
+@layer {
 #charting {
   button {
     @apply mt-6 bg-indigo-500 text-white font-medium py-2 px-4 rounded outline-none;
@@ -1061,9 +1166,9 @@ header {
     }
   }
 }
-
+}
 /* Key Events */
-
+@layer {
 #key-events {
   @apply max-w-sm mx-auto;
 
@@ -1079,9 +1184,10 @@ header {
     @apply flex items-center mt-4 justify-between text-cool-gray-800 text-lg;
   }
 }
+}
 
 /* File Uploads */
-
+@layer {
 #desks {
   @apply max-w-4xl mx-auto;
 
@@ -1187,9 +1293,9 @@ header {
     }
   }
 }
-
+}
 /* Modal */
-
+@layer {
 #underwater {
   @apply max-w-xl mx-auto text-center;
 
@@ -1216,7 +1322,7 @@ header {
     @apply text-center my-6 text-4xl;
   }
 }
-
+}
 /*
  * Range Input
  *

@@ -53,7 +53,7 @@ defmodule RealTime.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:tailwind, "~> 0.1", runtime: Mix.env() == :dev},
-      {:libcluster, "~> 3.3", only: :prod},
+      {:libcluster, "~> 3.3"},
       {:surface, "~> 0.7.0"},
       {:kino, "~> 0.5.0"},
       {:vega_lite, "~> 0.1.3"},
