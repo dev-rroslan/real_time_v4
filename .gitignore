@@ -40,3 +40,4 @@ assets/js/_hooks/
 # Supabase
 .supabase
 connection.livemd
+/.elixir_ls/

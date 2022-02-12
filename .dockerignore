@@ -17,3 +17,4 @@ erl_crash.dump
 # Static artifacts
 node_modules
 observer
+.elixir_ls

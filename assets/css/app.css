@@ -222,7 +222,7 @@
 }
 
 
-
+@layer base {
 body {
   @apply antialiased relative bg-cool-gray-200 font-sans;
 }
@@ -274,6 +274,7 @@ header {
     }
   }
 }
+}
 
 /* Light */
 
@@ -285,7 +286,7 @@ header {
 
 
   button {
-    @apply bg-transparent mx-1 py-2 px-4 border border-cool-gray-400 rounded-lg shadow-sm transition ease-in-out duration-150 outline-none;
+    @apply bg-transparent mx-1 py-1 px-1 border border-cool-gray-400 rounded-lg shadow-sm transition ease-in-out duration-150 outline-none;
   }
 
   button:hover {
@@ -314,7 +315,7 @@ header {
 }
 
 /* License */
-@layer {
+@layer utilities {
 #license {
   @apply max-w-lg mx-auto text-center;
 
@@ -345,7 +346,7 @@ header {
 }
 
 /* Dashboard */
-@layer {
+@layer utilities {
 #dashboard {
   @apply max-w-4xl mx-auto;
 
@@ -404,7 +405,7 @@ header {
 }
 
 /* Search */
-@layer {
+@layer utilities {
 #search {
   @apply max-w-3xl mx-auto text-center;
 
@@ -526,7 +527,7 @@ header {
 }
 }
 /* Filter */
-@layer {
+@layer utilities {
 #filter {
   .boats {
     @apply flex flex-wrap;
@@ -611,7 +612,7 @@ header {
 }
 
 /* Live Nav */
-@layer {
+@layer  utilities {
 #servers {
   @apply flex max-w-4xl mx-auto;
 
@@ -679,7 +680,7 @@ header {
 
       input[type="text"],
       input[type="number"] {
-        @apply w-full appearance-none px-3 py-2 border border-cool-gray-400 rounded-md transition duration-150 ease-in-out text-base text-xl;
+        @apply w-full appearance-none px-3 py-2 border border-cool-gray-400 rounded-md transition duration-150 ease-in-out text-xl;
       }
 
       input[type="text"]:focus,
@@ -764,7 +765,7 @@ header {
 }
 }
 /* Donations */
-@layer {
+@layer utilities {
 #donations {
   @apply max-w-4xl mx-auto;
 
@@ -858,7 +859,7 @@ header {
 }
 }
 /* Volunteer Checkin */
-@layer {
+@layer utilities {
 #checkin {
   @apply max-w-3xl mx-auto;
 
@@ -914,7 +915,7 @@ header {
 
     input[type="text"],
     input[type="tel"] {
-      @apply w-full appearance-none px-3 py-2 border border-cool-gray-400 rounded-md transition duration-150 ease-in-out text-base leading-5 text-xl;
+      @apply w-full appearance-none px-3 py-2 border border-cool-gray-400 rounded-md transition duration-150 ease-in-out leading-5 text-xl;
     }
 
     input[type="text"]:focus,
@@ -941,7 +942,7 @@ header {
 }
 }
 /* Infinite Scroll */
-@layer {
+@layer utilities{
 #infinite-scroll {
   .order {
     @apply flex items-center px-6 py-4 m-6 mx-auto max-w-2xl rounded bg-white overflow-hidden shadow-lg text-cool-gray-700;
@@ -973,7 +974,7 @@ header {
 }
 }
 /* Sandbox and Quote Components */
-@layer {
+@layer utilities {
 #sandbox {
   @apply max-w-xl mx-auto;
 
@@ -1021,7 +1022,7 @@ header {
 }
 }
 /* Auth */
-@layer {
+@layer utilities {
 .auth {
   @apply px-6 mt-8 mx-auto w-full max-w-md;
 
@@ -1079,7 +1080,7 @@ header {
 }
 }
 /* Top Secret */
-@layer {
+@layer utilities {
 #top-secret {
   @apply flex items-center justify-center py-10;
 
@@ -1105,7 +1106,7 @@ header {
 }
 }
 /* Charting */
-@layer {
+@layer utilities {
 #charting {
   button {
     @apply mt-6 bg-indigo-500 text-white font-medium py-2 px-4 rounded outline-none;
@@ -1119,9 +1120,10 @@ header {
     @apply bg-indigo-500;
   }
 }
+}
 
 /* Mapping */
-
+@layer utilities {
 #mapping {
   @apply flex;
 
@@ -1168,7 +1170,7 @@ header {
 }
 }
 /* Key Events */
-@layer {
+@layer utilities {
 #key-events {
   @apply max-w-sm mx-auto;
 
@@ -1187,7 +1189,7 @@ header {
 }
 
 /* File Uploads */
-@layer {
+@layer utilities {
 #desks {
   @apply max-w-4xl mx-auto;
 
@@ -1295,7 +1297,7 @@ header {
 }
 }
 /* Modal */
-@layer {
+@layer utilities {
 #underwater {
   @apply max-w-xl mx-auto text-center;
 
